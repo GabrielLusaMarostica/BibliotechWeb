@@ -1,0 +1,10 @@
+4c0d60f | 2026-10-24 | Gabriel Marostica | chore: cria projeto Maven com Spring Boot 3 e Java 21
+646295b | 2026-10-24 | Gabriel Marostica | feat: traz o nucleo refatorado da etapa 6 (model, servico, repositorios JDBC e em memoria)
+9957015 | 2026-10-24 | Gabriel Marostica | feat: script do banco MySQL 8 (schema.sql)
+589635b | 2026-10-24 | Gabriel Marostica | feat(web): API REST com login por token, cadastros, emprestimo, devolucao e painel
+130f1ea | 2026-10-24 | Gabriel Marostica | test: integra os 85 testes JUnit da etapa 7 ao projeto Maven
+41bf6aa | 2026-10-24 | Gabriel Marostica | test: testes da API REST (MockMvc), do acesso JDBC e da exclusao com emprestimo
+7b79925 | 2026-10-24 | Gabriel Marostica | feat(web): front-end da etapa 8 integrado a API
+9a1ca45 | 2026-10-24 | Gabriel Marostica | docs: README com sintese, execucao, API e estrutura
+bbc329f | 2026-10-24 | Gabriel Marostica | docs: registro de bugs BUG-001 a BUG-006 (bugtracking)
+46bd7d7 | 2026-10-24 | Gabriel Marostica | docs: evidencias de testes (documento, capturas e log de execucao)
