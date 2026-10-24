@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo empréstimo – Bibliotech</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<div class="layout">
+  <aside id="menu"></aside>
+  <main class="conteudo" id="principal">
+    <header class="cabecalho-pagina">
+      <div><h1>Novo empréstimo</h1><p>Escolha o aluno, adicione os livros e informe a data prevista.</p></div>
+    </header>
+    <div class="dois-paineis">
+      <form id="form-emprestimo" class="cartao" novalidate>
+        <h2>Dados do empréstimo</h2>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="aluno">Aluno</label>
+            <select id="aluno" name="aluno"></select>
+            <span class="erro" role="alert"></span>
+          </div>
+          <div class="campo">
+            <label for="funcionario">Funcionário responsável</label>
+            <select id="funcionario" name="funcionario"></select>
+            <span class="erro" role="alert"></span>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="prevista">Data prevista de devolução</label>
+          <input id="prevista" name="prevista" type="date">
+          <span class="ajuda">Prazo sugerido: 7 dias.</span>
+          <span class="erro" role="alert"></span>
+        </div>
+        <h2>Livros</h2>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="livro">Livro</label>
+            <select id="livro"></select>
+          </div>
+          <div class="campo">
+            <label for="qtd">Quantidade</label>
+            <input id="qtd" type="number" min="1" step="1" value="1">
+          </div>
+        </div>
+        <p class="erro" id="erro-item" role="alert" style="color:var(--cor-erro);min-height:1.2em"></p>
+        <button type="button" class="botao secundario" id="btn-adicionar">Adicionar à lista</button>
+        <p class="erro" id="erro-lista" role="alert" style="color:var(--cor-erro);min-height:1.2em"></p>
+        <div class="acoes-form">
+          <button type="reset" class="botao secundario" id="btn-limpar">Limpar</button>
+          <button type="submit" class="botao">Registrar empréstimo</button>
+        </div>
+      </form>
+      <aside class="cartao" aria-label="Resumo">
+        <h2>Resumo</h2>
+        <div id="lista-itens"></div>
+        <p>Total de exemplares: <span class="resumo-valor" id="total-exemplares">0</span></p>
+      </aside>
+    </div>
+  </main>
+</div>
+<script src="js/api.js"></script>
+<script src="js/validacao.js"></script>
+<script src="js/app.js"></script>
+<script src="js/emprestimo.js"></script>
+</body>
+</html>

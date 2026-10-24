@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel – Bibliotech</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<div class="layout">
+  <aside id="menu"></aside>
+  <main class="conteudo" id="principal">
+    <header class="cabecalho-pagina">
+      <div><h1>Painel</h1><p>Visão geral da biblioteca.</p></div>
+      <a class="botao" href="emprestimo.html">+ Novo empréstimo</a>
+    </header>
+    <section class="grade-cartoes" aria-label="Indicadores">
+      <div class="indicador"><div class="numero" id="ind-livros">0</div><div class="rotulo">Exemplares em estoque</div></div>
+      <div class="indicador"><div class="numero" id="ind-alunos">0</div><div class="rotulo">Alunos cadastrados</div></div>
+      <div class="indicador"><div class="numero" id="ind-pendentes">0</div><div class="rotulo">Empréstimos pendentes</div></div>
+      <div class="indicador alerta"><div class="numero" id="ind-atrasados">0</div><div class="rotulo">Em atraso</div></div>
+    </section>
+    <section class="cartao">
+      <h2>Devoluções mais urgentes</h2>
+      <div class="tabela-rolavel">
+        <table>
+          <thead><tr><th scope="col">Aluno</th><th scope="col">Previsto para</th><th scope="col">Situação</th></tr></thead>
+          <tbody id="urgentes"></tbody>
+        </table>
+      </div>
+      <p><a href="pendentes.html">Ver todos os pendentes →</a></p>
+    </section>
+    <section class="cartao">
+      <h2>Livros com estoque baixo</h2>
+      <ul id="estoque-baixo"></ul>
+    </section>
+  </main>
+</div>
+<script src="js/api.js"></script>
+<script src="js/validacao.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

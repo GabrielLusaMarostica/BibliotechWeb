@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pendentes e devolução – Bibliotech</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<div class="layout">
+  <aside id="menu"></aside>
+  <main class="conteudo" id="principal">
+    <header class="cabecalho-pagina">
+      <div><h1>Pendentes e devolução</h1><p>Empréstimos ainda não devolvidos. Multa: R$&nbsp;2,00 por dia de atraso.</p></div>
+    </header>
+    <section class="cartao">
+      <div class="barra-ferramentas">
+        <label class="sr-only" for="busca">Buscar por aluno</label>
+        <input type="search" id="busca" placeholder="Buscar por aluno..." autocomplete="off">
+        <label><input type="checkbox" id="so-atrasados"> Somente em atraso</label>
+        <span id="contador" aria-live="polite"></span>
+      </div>
+      <div class="tabela-rolavel">
+        <table>
+          <thead><tr><th scope="col">Aluno</th><th scope="col">Livros</th><th scope="col">Previsto</th><th scope="col">Situação</th><th scope="col">Ação</th></tr></thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+<dialog id="dialogo-devolucao" aria-labelledby="titulo-devolucao">
+  <h2 id="titulo-devolucao">Confirmar devolução</h2>
+  <div id="detalhe-devolucao"></div>
+  <div class="acoes-form">
+    <button type="button" class="botao secundario" id="cancelar-devolucao">Cancelar</button>
+    <button type="button" class="botao" id="confirmar-devolucao">Confirmar devolução</button>
+  </div>
+</dialog>
+<script src="js/api.js"></script>
+<script src="js/validacao.js"></script>
+<script src="js/app.js"></script>
+<script src="js/pendentes.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+/* Bibliotech - estilo global (etapa 8) */
+:root {
+  --cor-primaria: #1f4e79;
+  --cor-primaria-escura: #153654;
+  --cor-destaque: #c8892b;
+  --cor-fundo: #f4f1ea;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1d2733;
+  --cor-texto-suave: #5b6672;
+  --cor-borda: #d9d4c7;
+  --cor-ok: #2e7d4f;
+  --cor-erro: #b3261e;
+  --cor-aviso: #b26a00;
+  --raio: 10px;
+  --sombra: 0 1px 3px rgba(20, 30, 40, .12);
+  --fonte: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; font-family: var(--fonte); color: var(--cor-texto); background: var(--cor-fundo); line-height: 1.45; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .5rem; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.2rem; }
+a { color: var(--cor-primaria); }
+:focus-visible { outline: 3px solid var(--cor-destaque); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+[hidden] { display: none !important; }
+
+/* Estrutura com menu lateral */
+.layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+.menu { background: var(--cor-primaria-escura); color: #fff; padding: 1.25rem 1rem; display: flex; flex-direction: column; gap: 1rem; }
+.menu .marca { font-size: 1.35rem; font-weight: 700; letter-spacing: .02em; display: flex; align-items: center; gap: .5rem; color: #fff; text-decoration: none; }
+.menu .marca > span:first-child { color: var(--cor-destaque); }
+.menu nav { display: flex; flex-direction: column; gap: .25rem; }
+.menu nav a { color: #dbe6f1; text-decoration: none; padding: .6rem .75rem; border-radius: 8px; display: flex; gap: .6rem; align-items: center; }
+.menu nav a:hover { background: rgba(255,255,255,.1); }
+.menu nav a[aria-current="page"] { background: var(--cor-destaque); color: #1d1405; font-weight: 600; }
+.menu .usuario { margin-top: auto; font-size: .9rem; color: #b9c9da; border-top: 1px solid rgba(255,255,255,.2); padding-top: .75rem; }
+.menu .usuario button { margin-top: .5rem; }
+.menu .botao-menu { display: none; }
+.conteudo { min-width: 0; padding: 1.5rem 2rem 3rem; max-width: 1100px; width: 100%; }
+.cabecalho-pagina { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.cabecalho-pagina p { margin: 0; color: var(--cor-texto-suave); }
+
+/* Cartões, botões e formulários */
+.cartao { background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio); box-shadow: var(--sombra); padding: 1.25rem; margin-bottom: 1.25rem; }
+.grade-cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+.indicador { background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-left: 5px solid var(--cor-primaria); border-radius: var(--raio); padding: 1rem; box-shadow: var(--sombra); }
+.indicador.alerta { border-left-color: var(--cor-erro); }
+.indicador .numero { font-size: 2rem; font-weight: 700; }
+.indicador .rotulo { color: var(--cor-texto-suave); font-size: .9rem; }
+
+.botao { font: inherit; cursor: pointer; border: 1px solid var(--cor-primaria); background: var(--cor-primaria); color: #fff; padding: .55rem 1rem; border-radius: 8px; text-decoration: none; display: inline-block; }
+.botao:hover { background: var(--cor-primaria-escura); }
+.botao.secundario { background: transparent; color: var(--cor-primaria); }
+.botao.secundario:hover { background: #e8eef5; }
+.botao.perigo { background: var(--cor-erro); border-color: var(--cor-erro); }
+.botao.pequeno { padding: .3rem .65rem; font-size: .88rem; }
+.menu .botao.secundario { color: #fff; border-color: rgba(255,255,255,.5); }
+.menu .botao.secundario:hover { background: rgba(255,255,255,.12); }
+
+.campo { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.campo label { font-weight: 600; font-size: .95rem; }
+.campo input, .campo select, .campo textarea { font: inherit; padding: .55rem .7rem; border: 1px solid var(--cor-borda); border-radius: 8px; background: #fff; color: inherit; }
+.campo input:focus, .campo select:focus { border-color: var(--cor-primaria); }
+.campo .ajuda { font-size: .82rem; color: var(--cor-texto-suave); }
+.campo .erro { font-size: .85rem; color: var(--cor-erro); min-height: 1.1em; }
+.campo.invalido input, .campo.invalido select { border-color: var(--cor-erro); background: #fff6f5; }
+.campo.valido input { border-color: var(--cor-ok); }
+.linha-campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 1rem; }
+.acoes-form { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: flex-end; }
+
+/* Tabelas */
+.barra-ferramentas { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+.barra-ferramentas input[type="search"] { flex: 1 1 220px; font: inherit; padding: .55rem .7rem; border: 1px solid var(--cor-borda); border-radius: 8px; }
+.tabela-rolavel { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { text-align: left; padding: .65rem .75rem; border-bottom: 1px solid var(--cor-borda); vertical-align: middle; }
+th { background: #ebe6d9; font-size: .88rem; text-transform: uppercase; letter-spacing: .03em; }
+tbody tr:hover { background: #faf8f2; }
+td.acoes { white-space: nowrap; display: flex; gap: .4rem; }
+.vazio { text-align: center; color: var(--cor-texto-suave); padding: 1.5rem; }
+.selo { display: inline-block; padding: .1rem .55rem; border-radius: 99px; font-size: .8rem; font-weight: 600; }
+.selo.ok { background: #dff1e6; color: var(--cor-ok); }
+.selo.atraso { background: #fbe0de; color: var(--cor-erro); }
+.selo.baixo { background: #fdecd0; color: var(--cor-aviso); }
+
+/* Aviso (toast) e janela modal */
+.avisos { position: fixed; right: 1rem; bottom: 1rem; display: flex; flex-direction: column; gap: .5rem; z-index: 50; }
+.aviso { background: #263238; color: #fff; padding: .7rem 1rem; border-radius: 8px; box-shadow: var(--sombra); border-left: 5px solid var(--cor-ok); max-width: 320px; }
+.aviso.erro { border-left-color: var(--cor-erro); }
+dialog { border: none; border-radius: var(--raio); padding: 1.5rem; width: min(520px, 92vw); box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+dialog::backdrop { background: rgba(10, 20, 30, .55); }
+
+/* Login */
+.pagina-login { min-height: 100vh; display: grid; place-items: center; padding: 1rem; background: linear-gradient(135deg, var(--cor-primaria-escura), var(--cor-primaria)); }
+.caixa-login { background: #fff; border-radius: 14px; padding: 2rem; width: min(400px, 100%); box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+.caixa-login .logo { font-size: 1.8rem; font-weight: 800; color: var(--cor-primaria); }
+.caixa-login .logo span { color: var(--cor-destaque); }
+.caixa-login .subtitulo { color: var(--cor-texto-suave); margin: 0 0 1.5rem; }
+.caixa-login form > .botao { width: 100%; }
+.dica-demo { margin-top: 1rem; font-size: .82rem; color: var(--cor-texto-suave); background: #f4f1ea; padding: .6rem; border-radius: 8px; }
+.senha-linha { display: flex; gap: .4rem; }
+.senha-linha input { flex: 1; min-width: 0; }
+
+/* Empréstimo */
+.dois-paineis { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.25rem; align-items: start; }
+.item-lista { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .5rem 0; border-bottom: 1px dashed var(--cor-borda); }
+.resumo-valor { font-size: 1.3rem; font-weight: 700; }
+
+/* Responsivo */
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .menu { position: sticky; top: 0; z-index: 20; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: .6rem 1rem; }
+  .menu .botao-menu { display: inline-block; }
+  .menu nav, .menu .usuario { display: none; width: 100%; }
+  .menu.aberto nav { display: flex; }
+  .menu.aberto .usuario { display: block; }
+  .conteudo { padding: 1rem 1rem 3rem; }
+  .dois-paineis { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) { .botao, .menu nav a { transition: background .15s; } }
