@@ -1,0 +1,10 @@
+target/
+build/
+dist/
+nbproject/private/
+.idea/
+out/
+*.iml
+*.env
+*.log
+application-local.properties
