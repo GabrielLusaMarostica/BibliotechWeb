@@ -1,0 +1,191 @@
+[
+ {
+  "id": "CT-M01",
+  "titulo": "Login válido",
+  "resultado": "OK",
+  "obtido": "Abriu o Painel após o login (URL: dashboard.html).",
+  "print": "CT-M01.png"
+ },
+ {
+  "id": "CT-M02",
+  "titulo": "Senha errada / login inexistente",
+  "resultado": "OK",
+  "obtido": "Mensagens: 'Login ou senha inválidos.' e 'Login ou senha inválidos.'.",
+  "print": "CT-M02.png"
+ },
+ {
+  "id": "CT-M03",
+  "titulo": "Senha oculta e acesso sem login",
+  "resultado": "OK",
+  "obtido": "Campo de senha com type=password; abrir alunos.html sem login voltou para index.html; GET /api/alunos sem token = HTTP 401.",
+  "print": "CT-M03.png"
+ },
+ {
+  "id": "CT-M04",
+  "titulo": "Aluno sem nome",
+  "resultado": "OK",
+  "obtido": "Mensagem no campo nome: 'Campo obrigatório.'; alunos gravados: 0.",
+  "print": "CT-M04.png"
+ },
+ {
+  "id": "CT-M05",
+  "titulo": "Matrícula duplicada",
+  "resultado": "OK",
+  "obtido": "Aviso: 'Já existe um aluno com a matrícula A100.'; alunos gravados: 1.",
+  "print": "CT-M05.png"
+ },
+ {
+  "id": "CT-M06",
+  "titulo": "Busca sem diferenciar maiúsculas",
+  "resultado": "OK",
+  "obtido": "Busca por 'SILVA' retornou 1 linha(s): Maria Silva\tA100\t\t\t Editar Excluir.",
+  "print": "CT-M06.png"
+ },
+ {
+  "id": "CT-M07",
+  "titulo": "Excluir aluno sem e com empréstimo",
+  "resultado": "OK",
+  "obtido": "Aluno sem empréstimo removido=True; aluno com empréstimo: aviso 'Não é possível excluir o aluno: ele possui empréstimos registrados.', continua na lista=True; sistema responde=True.",
+  "print": "CT-M07.png"
+ },
+ {
+  "id": "CT-M08",
+  "titulo": "Cadastrar e listar funcionário",
+  "resultado": "OK",
+  "obtido": "Aparece na lista=True; linhas no MySQL=1.",
+  "print": "CT-M08.png"
+ },
+ {
+  "id": "CT-M09",
+  "titulo": "Livro com quantidade negativa / ano 0",
+  "resultado": "OK",
+  "obtido": "Tela: 'Informe um número inteiro maior ou igual a zero.' e 'Informe um ano com 4 dígitos (não pode ser futuro).'. API direta: HTTP 400 e 400 (\"O campo 'ano' deve ser maior que zero.\"). Livros gravados: 0.",
+  "print": "CT-M09.png"
+ },
+ {
+  "id": "CT-M10",
+  "titulo": "Empréstimo de 2 de 3 exemplares",
+  "resultado": "OK",
+  "obtido": "Aviso: 'Empréstimo registrado com sucesso.'; estoque no banco=1; tela de livros: 'Livro Tres A x 2000 1 un. Editar Excluir'.",
+  "print": "CT-M10.png"
+ },
+ {
+  "id": "CT-M11",
+  "titulo": "Quantidade maior que o estoque",
+  "resultado": "OK",
+  "obtido": "Tela: 'Estoque insuficiente: \"Livro Tres\" tem 3 disponível(is).'. API direta: HTTP 409 \"Livro 'Livro Tres' indisponível: pedidos 5, em estoque 1.\". Empréstimos antes/depois=2/2; estoque=1.",
+  "print": "CT-M11.png"
+ },
+ {
+  "id": "CT-M12",
+  "titulo": "Data prevista anterior a hoje",
+  "resultado": "OK",
+  "obtido": "Tela: 'A data prevista não pode ser anterior a hoje.'. API direta: HTTP 400 'A data prevista de devolução não pode ser anterior à data do empréstimo.'.",
+  "print": "CT-M12.png"
+ },
+ {
+  "id": "CT-M13",
+  "titulo": "Devolução com 3 dias de atraso",
+  "resultado": "OK",
+  "obtido": "Diálogo: 'Aluno: Aluno Atrasado  Dias de atraso: 3  Multa: R$\\xa06,00'; aviso: 'Devolução registrada. Multa: R$\\xa06,00.'; estoque 1→3; devolucao no MySQL: '3\\t6.00'.",
+  "print": "CT-M13.png"
+ },
+ {
+  "id": "CT-M14",
+  "titulo": "Devolver duas vezes",
+  "resultado": "OK",
+  "obtido": "Segunda tentativa: HTTP 400 'Este empréstimo já foi devolvido.'; estoque continua 3.",
+  "print": null
+ },
+ {
+  "id": "CT-M15",
+  "titulo": "Lista de pendentes antes/depois",
+  "resultado": "OK",
+  "obtido": "Antes da devolução apareceu=True; depois sumiu=True.",
+  "print": "CT-M15.png"
+ },
+ {
+  "id": "CT-W01",
+  "titulo": "Painel mostra os mesmos números da API",
+  "resultado": "OK",
+  "obtido": "Tela: {'ind-livros': '8', 'ind-alunos': '3', 'ind-pendentes': '2', 'ind-atrasados': '0'}; API: {'exemplaresEmEstoque': 8, 'alunos': 3, 'pendentes': 2, 'atrasados': 0}.",
+  "print": "CT-W01.png"
+ },
+ {
+  "id": "CT-W02",
+  "titulo": "Sair encerra a sessão",
+  "resultado": "OK",
+  "obtido": "Depois de Sair, abrir dashboard.html voltou para o login.",
+  "print": "CT-W02.png"
+ },
+ {
+  "id": "CT-M18",
+  "titulo": "Banco fora do ar durante empréstimo",
+  "resultado": "OK",
+  "obtido": "Mensagem na tela: 'Erro ao acessar o banco de dados.'; aplicação continuou respondendo=True; empréstimos 3→3; estoque 4→4 após religar o MySQL.",
+  "print": "CT-M18.png"
+ },
+ {
+  "id": "CT-M16",
+  "titulo": "Senha do banco fora do código",
+  "resultado": "OK",
+  "obtido": "Sem a variável de ambiente o sistema recusa subir: 'PersistenciaException: Senha do banco não configurada. Defina a variável de ambiente BIBLIOTECH_DB_PASSWORD (ou -Dbibliotech.db.password).'. Ocorrências de senha no código-fonte: 0.",
+  "print": null
+ },
+ {
+  "id": "CT-M17",
+  "titulo": "Sistema rodando em MySQL real",
+  "resultado": "OK",
+  "obtido": "Servidor MySQL 8.0.46-0ubuntu0.24.04.4; linhas gravadas (alunos, livros, empréstimos, devoluções): 3, 3, 3, 1.",
+  "print": null
+ },
+ {
+  "id": "CT-X01",
+  "titulo": "Texto maior que a coluna do banco (BUG-004)",
+  "resultado": "OK",
+  "obtido": "Nome com 400 caracteres: HTTP 400 \"O campo 'nome' deve ter no máximo 120 caracteres.\".",
+  "print": null
+ },
+ {
+  "id": "CT-X02",
+  "titulo": "Id não numérico na URL (BUG-005)",
+  "resultado": "OK",
+  "obtido": "GET /api/alunos/abc: HTTP 400 \"Valor inválido para o parâmetro 'id'.\".",
+  "print": null
+ },
+ {
+  "id": "CT-X03",
+  "titulo": "8 pedidos simultâneos pelo último exemplar (BUG-006)",
+  "resultado": "OK",
+  "obtido": "Códigos HTTP: [201, 409, 409, 409, 409, 409, 409, 409]; estoque final=0.",
+  "print": null
+ },
+ {
+  "id": "CT-X04",
+  "titulo": "Texto com HTML/JavaScript no nome (XSS)",
+  "resultado": "OK",
+  "obtido": "O texto aparece literalmente na tabela e o script não executou.",
+  "print": "CT-X04.png"
+ },
+ {
+  "id": "CT-X05",
+  "titulo": "Token inválido e ausente",
+  "resultado": "OK",
+  "obtido": "Token falso: HTTP 401; sem token: HTTP 401.",
+  "print": null
+ },
+ {
+  "id": "CT-W03",
+  "titulo": "Layout em tela de celular (390 px)",
+  "resultado": "OK",
+  "obtido": "Sem rolagem horizontal da página=True.",
+  "print": "CT-W03.png"
+ },
+ {
+  "id": "CT-W04",
+  "titulo": "Erros de JavaScript no console",
+  "resultado": "OK",
+  "obtido": "Erros de página capturados: nenhum.",
+  "print": null
+ }
+]
